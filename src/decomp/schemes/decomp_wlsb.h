@@ -56,7 +56,7 @@ typedef enum
  *
  * See RFC 3095, §4.5.1
  */
-struct rohc_lsb_decode
+struct __attribute__((aligned(8))) rohc_lsb_decode
 {
 	/** The reference values (ref -1 and ref 0) */
 	uint32_t v_ref_d[ROHC_LSB_REF_MAX];
@@ -78,7 +78,7 @@ _Static_assert((sizeof(struct rohc_lsb_decode) % 8) == 0,
 
 
 /** The context to parse and decode one LSB-encoded 32-bit field */
-struct rohc_lsb_field32
+struct __attribute__((aligned(8))) rohc_lsb_field32
 {
 	int32_t p;          /**< The LSB shift parameter to decode extracted bits */
 	uint32_t bits;      /**< The bits extracted from the ROHC packet */
@@ -96,7 +96,7 @@ _Static_assert((sizeof(struct rohc_lsb_field32) % 8) == 0,
 
 
 /** The context to parse and decode one LSB-encoded 16-bit field */
-struct rohc_lsb_field16
+struct __attribute__((aligned(8))) rohc_lsb_field16
 {
 	int32_t p;          /**< The LSB shift parameter to decode extracted bits */
 	uint16_t bits;      /**< The bits extracted from the ROHC packet */
@@ -114,7 +114,7 @@ _Static_assert((sizeof(struct rohc_lsb_field16) % 8) == 0,
 
 
 /** The context to parse and decode one LSB-encoded 8-bit field */
-struct rohc_lsb_field8
+struct __attribute__((aligned(8))) rohc_lsb_field8
 {
 	int32_t p;          /**< The LSB shift parameter to decode extracted bits */
 	uint8_t bits;       /**< The bits extracted from the ROHC packet */

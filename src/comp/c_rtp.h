@@ -43,7 +43,7 @@
  *
  * @see rohc_comp_rfc3095_ctxt
  */
-struct sc_rtp_context
+struct __attribute__((aligned(8))) sc_rtp_context
 {
 	/** Structure to encode the TS field */
 	struct ts_sc_comp ts_sc;

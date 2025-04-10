@@ -35,7 +35,7 @@
 #include <stdint.h>
 
 /** The context to parse and decode the TCP SACK option */
-struct d_tcp_opt_sack
+struct __attribute__((aligned(8))) d_tcp_opt_sack
 {
 	sack_block_t blocks[TCP_SACK_BLOCKS_MAX_NR]; /**< The SACK blocks */
 	uint8_t blocks_nr;                           /**< The number of SACK blocks */

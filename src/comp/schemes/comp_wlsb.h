@@ -42,7 +42,7 @@
 /**
  * @brief One W-LSB window entry
  */
-struct c_window
+struct __attribute__((aligned(8))) c_window
 {
 	uint32_t sn;     /**< The Sequence Number (SN) associated with the entry
 	                      (used to acknowledge the entry) */
@@ -65,7 +65,7 @@ _Static_assert((sizeof(struct c_window) % 8) == 0,
 /**
  * @brief One W-LSB encoding object
  */
-struct c_wlsb
+struct __attribute__((aligned(8))) c_wlsb
 {
 	/** The window in which previous values of the encoded value are stored */
 	struct c_window *window;

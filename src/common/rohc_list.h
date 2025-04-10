@@ -48,7 +48,7 @@
 /**
  * @brief Define a list for compression
  */
-struct rohc_list
+struct __attribute__((aligned(8))) rohc_list
 {
 /** The maximum number of items in a list (required by packet formats) */
 #define ROHC_LIST_ITEMS_MAX  15U
@@ -75,7 +75,7 @@ _Static_assert((sizeof(struct rohc_list) % 8) == 0,
 /**
  * @brief A list item
  */
-struct rohc_list_item
+struct __attribute__((aligned(8))) rohc_list_item
 {
 /**
  * @brief The maximum length (in bytes) of item data

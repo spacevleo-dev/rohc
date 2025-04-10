@@ -190,7 +190,7 @@ struct rfc3095_ip_hdr_changes
  *
  * @see c_init_tmp_variables
  */
-struct rfc3095_tmp_state
+struct __attribute__((aligned(8))) rfc3095_tmp_state
 {
 	/** The new Sequence Number (SN) */
 	uint32_t new_sn;

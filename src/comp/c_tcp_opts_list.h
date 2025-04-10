@@ -40,7 +40,7 @@
 /**
  * @brief The compression context for one TCP option
  */
-struct c_tcp_opt_ctxt
+struct __attribute__((aligned(8))) c_tcp_opt_ctxt
 {
 	/** The TCP option data (without type and length fields) */
 	uint8_t payload[ROHC_TCP_OPT_MAX_LEN - 2];
@@ -72,7 +72,7 @@ _Static_assert((sizeof(struct c_tcp_opt_ctxt) % 8) == 0,
 
 
 /** The temporary part of the compression context for TCP options */
-struct c_tcp_opts_ctxt_tmp
+struct __attribute__((aligned(8))) c_tcp_opts_ctxt_tmp
 {
 	/** The value of the TCP option timestamp echo request (in HBO) */
 	uint32_t ts_req;
@@ -131,7 +131,7 @@ _Static_assert((sizeof(struct c_tcp_opts_ctxt_tmp) % 8) == 0,
 
 
 /** The compression context for TCP options */
-struct c_tcp_opts_ctxt
+struct __attribute__((aligned(8))) c_tcp_opts_ctxt
 {
 	uint8_t old_structure[ROHC_TCP_OPTS_MAX];
 	uint8_t old_structure_nr;

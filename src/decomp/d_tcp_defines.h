@@ -43,7 +43,7 @@
 
 
 /** The decompression context for one TCP option */
-struct d_tcp_opt_ctxt /* TODO: doxygen */
+struct __attribute__((aligned(8))) d_tcp_opt_ctxt
 {
 	union
 	{
@@ -110,7 +110,7 @@ _Static_assert((sizeof(struct d_tcp_opt_ctxt) % 8) == 0,
 
 
 /** The decompression context for TCP options */
-struct d_tcp_opts_ctxt
+struct __attribute__((aligned(8))) d_tcp_opts_ctxt
 {
 	/** The structure of the list of TCP options */
 	uint8_t structure[ROHC_TCP_OPTS_MAX];
@@ -149,7 +149,7 @@ _Static_assert((sizeof(struct d_tcp_opts_ctxt) % 8) == 0,
 
 
 /** Define the TCP part of the decompression profile context */
-struct d_tcp_context
+struct __attribute__((aligned(8))) d_tcp_context
 {
 	/** The LSB decoding context of MSN */
 	struct rohc_lsb_decode msn_lsb_ctxt;
@@ -230,7 +230,7 @@ _Static_assert((sizeof(struct d_tcp_context) % 8) == 0,
 
 
 /** The outer or inner IP bits extracted from ROHC headers */
-struct rohc_tcp_extr_ip_bits
+struct __attribute__((aligned(8))) rohc_tcp_extr_ip_bits
 {
 	struct rohc_lsb_field16 id;  /**< The IP-ID bits */
 	struct rohc_lsb_field8 ttl_hl;  /**< The IP TTL/HL bits */
@@ -290,7 +290,7 @@ _Static_assert((sizeof(struct rohc_tcp_extr_ip_bits) % 8) == 0,
 
 
 /** The bits extracted from ROHC TCP header */
-struct rohc_tcp_extr_bits
+struct __attribute__((aligned(8))) rohc_tcp_extr_bits
 {
 	/** The extracted bits of the Master Sequence Number (MSN) of the packet */
 	struct rohc_lsb_field16 msn;
@@ -376,7 +376,7 @@ _Static_assert((sizeof(struct rohc_tcp_extr_bits) % 8) == 0,
 
 
 /** The IP values decoded from the extracted ROHC bits */
-struct rohc_tcp_decoded_ip_values
+struct __attribute__((aligned(8))) rohc_tcp_decoded_ip_values
 {
 	uint8_t saddr[16];   /**< The decoded source address field */
 	uint8_t daddr[16];   /**< The decoded destination address field */
@@ -422,7 +422,7 @@ _Static_assert((sizeof(struct rohc_tcp_decoded_ip_values) % 8) == 0,
 
 
 /** The values decoded from the bits extracted from ROHC TCP header */
-struct rohc_tcp_decoded_values
+struct __attribute__((aligned(8))) rohc_tcp_decoded_values
 {
 	/* TCP TS option */
 	uint32_t opt_ts_req;  /**< The echo request value of the TCP TS option */

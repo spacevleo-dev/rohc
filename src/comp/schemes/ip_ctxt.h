@@ -38,7 +38,7 @@
 /**
  * @brief Define the IPv6 generic option context
  */
-typedef struct
+typedef struct __attribute__((aligned(8))) ipv6_generic_option_context_t
 {
 	uint8_t data[IPV6_OPT_CTXT_LEN_MAX];
 	/**
@@ -73,7 +73,7 @@ typedef union
 /**
  * @brief The TCP compression context for one IPv4 or IPv6 header
  */
-typedef struct
+typedef struct __attribute__((aligned(8))) ip_context_t
 {
 	uint32_t flow_label:20;
 	union

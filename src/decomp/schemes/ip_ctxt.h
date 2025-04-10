@@ -37,7 +37,7 @@
  * @brief Define the IPv6 option context for Destination, Hop-by-Hop
  *        and Routing option
  */
-typedef struct
+typedef struct __attribute__((aligned(8))) ipv6_generic_option_context_t
 {
 	uint8_t data[IPV6_OPT_CTXT_LEN_MAX];
 	uint16_t data_len; /* max length = (0xff + 1) * 8 = 2048 bytes */
@@ -54,7 +54,7 @@ _Static_assert((sizeof(ipv6_generic_option_context_t) % 8) == 0,
 
 
 /** The decompression context for one IP extension header */
-typedef struct
+typedef struct __attribute__((aligned(8))) ip_option_context_t
 {
 	uint16_t len;      /**< The length (in bytes) of the extension header */
 
@@ -80,7 +80,7 @@ _Static_assert((sizeof(ip_option_context_t) % 8) == 0,
 /**
  * @brief The TCP decompression context for one IPv4 or IPv6 header
  */
-typedef struct
+typedef struct __attribute__((aligned(8))) ip_context_t
 {
 	uint32_t flow_label:20; /**< IPv6 Flow Label */
 	union

@@ -131,7 +131,7 @@ struct tcp_tmp_variables
 
 
 /** Define the TCP part of the profile decompression context */
-struct sc_tcp_context
+struct __attribute__((aligned(8))) sc_tcp_context
 {
 	uint16_t last_msn;   /**< The Master Sequence Number (MSN) */
 	/** The MSN of the last packet that updated the context (used to determine
